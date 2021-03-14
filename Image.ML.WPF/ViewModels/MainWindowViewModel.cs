@@ -1,15 +1,15 @@
-﻿namespace Image.ML.WPF.ViewModels.Base
+﻿using Image.ML.WPF.Services.Interfaces;
+
+namespace Image.ML.WPF.ViewModels.Base
 {
-    public class MainWindowViewModel : ViewModel
+    public class MainWindowViewModel : TitledViewModel
     {
-        #region Title : string - Заголовок
+        private IUserDialog UserDialog { get; }
 
-        /// <summary>Заголовок</summary>
-        private string _Title = "Машинное обучение";
-
-        /// <summary>Заголовок</summary>
-        public string Title { get => _Title; set => Set(ref _Title, value); }
-
-        #endregion
+        public MainWindowViewModel(IUserDialog UserDialog)
+        {
+            Title = "Машинное обучение";
+            this.UserDialog = UserDialog;
+        }
     }
 }

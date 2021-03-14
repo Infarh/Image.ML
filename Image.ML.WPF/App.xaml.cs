@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
+using Image.ML.WPF.Services;
+using Image.ML.WPF.Services.Interfaces;
 using Image.ML.WPF.ViewModels.Base;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,6 +31,7 @@ namespace Image.ML.WPF
         {
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<ServiceLocator>();
+            services.AddTransient<IUserDialog, WindowUserDialog>();
         }
     }
 }
